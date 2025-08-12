@@ -3,8 +3,6 @@ import pandas as pd
 import os
 from sqlalchemy import create_engine
 
-
-
 load_dotenv()
 
 DB_USER = os.getenv("DB_USER")
