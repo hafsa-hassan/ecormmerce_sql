@@ -7,7 +7,7 @@ WITH
     Customer_RFM_CTE AS
     (
     SELECT 
-        od.customer_id, 
+        od.customer_id,
         DATEDIFF(
             '2018-10-18',
             MAX(order_purchase_timestamp) 
@@ -36,7 +36,18 @@ WITH
     FROM Customer_RFM_CTE
     )
 SELECT customer_id,
-    CONCAT_WS('-', R_score, F_score, M_score) AS RFM_Segments,
-    (R_score + F_score + M_score) AS RFM_Score_SUM
+    Recency, Frequency, Monetary, R_score, F_score, M_score, (R_score + F_score + M_score) AS RFM_Score_SUM,
+
+    CASE
+        WHEN R_score >= 4 AND F_score >= 4 AND M_score >= 4 THEN 'Champion'
+        WHEN R_score >= 4 AND F_score >= 3 THEN 'Loyal Customer'
+        WHEN R_score >= 3 AND M_score >= 4 THEN 'Big Spender'
+        WHEN R_score >= 3 AND F_score >= 3 THEN 'Frequent Buyer'
+        WHEN R_score = 5 AND F_score = 1 THEN 'New Customer'
+        WHEN R_score <= 2 AND F_score >= 4 THEN 'At Risk'
+        WHEN R_score = 1 AND F_score = 1 AND M_score = 1 THEN 'Lost Customer'
+        ELSE 'Customer Attention'
+    END AS Customer_labels
+
 FROM RFM_Scores
 ;

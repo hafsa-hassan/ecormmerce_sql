@@ -1,7 +1,6 @@
--- Active: 1752368596382@@localhost@3306@ecommerce_db
+-- Active: 1756496750776@@127.0.0.1@3306@ecommerce_db
 
 /* 1. What is the total number of orders per month ? */
-
 SELECT
     YEAR(order_purchase_timestamp) AS years,
     MONTH(order_purchase_timestamp) AS months,
@@ -12,11 +11,21 @@ GROUP BY
     MONTH(order_purchase_timestamp)
 ORDER BY years, months;
 
-/* 2. What is the monthly revenue trend ? */
+/* 2. What is the Total revenue ? */
+
+SELECT 
+    ROUND(SUM(opd.payment_value), 2) AS Total_Revenue
+FROM
+    orders_dataset od
+    JOIN order_payments_dataset opd ON od.order_id = opd.order_id
+WHERE order_status = 'delivered'
+;
+
+/* 3. What is the monthly revenue trend ? */
 
 SELECT DATE_FORMAT(
         od.order_purchase_timestamp, '%Y-%m'
-    ) year_months, SUM(opd.payment_value) AS Revenue_Trends
+    ) year_months, ROUND(SUM(opd.payment_value), 2) AS Revenue_Trends
 FROM
     orders_dataset od
     JOIN order_payments_dataset opd ON od.order_id = opd.order_id
@@ -24,7 +33,7 @@ GROUP BY
     year_months
 ORDER BY year_months;
 
-/* 3. What are the top 10 best - selling products by revenue and quantity ? */
+/* 4. What are the top 10 best - selling products by revenue and quantity ? */
 
 SELECT
     oitd.product_id,
@@ -44,30 +53,3 @@ GROUP BY
     pd.product_category_name
 ORDER BY total_quantity DESC, total_revenue DESC
 LIMIT 10;
-
-/* 4. What is the average delivery time vs estimated delivery time ? */
-
-SELECT
-    ROUND(
-        AVG(
-            DATEDIFF(
-                order_delivered_customer_date,
-                order_approved_at
-            )
-        ),
-        2
-    ) AS avg_delivery_time,
-    ROUND(
-        AVG(
-            DATEDIFF(
-                order_estimated_delivery_date,
-                order_approved_at
-            )
-        ),
-        2
-    ) AS avg_estimated_time
-FROM orders_dataset
-WHERE
-    order_delivered_customer_date IS NOT NULL
-    AND order_estimated_delivery_date IS NOT NULL
-    AND order_approved_at IS NOT NULL;
