@@ -11,7 +11,7 @@
 6. [Power BI Dashboard](#Power-BI-Dashboard)
 
 # Project Summary
-This project analyzes an [E-Commerce Orders Data](#kaggle-Datast) to uncover business insights about sales, products, and customer behavior.  
+This project analyzes an [Kaggle E-Commerce Orders Data](#Dataset) to uncover business insights about sales, products, and customer behavior.  
 The analysis was performed using **SQL** for querying and **Power BI** for interactive dashboards.
 
 The main objectives were:
@@ -23,15 +23,15 @@ The main objectives were:
 - Understand customer behavior using RFM (Recency, Frequency, Monetary segmentation)
 
 Provide actionable insights for marketing and operations teams
---
+
 # Tools and Technologies Used
 - **SQL (MySQL)** → Data extraction, transformation, aggregations, sales iInsight and RFM analysis
 - **Power BI Desktop** → Dashboards & visual storytelling  
 - **GitHub** → Version control & portfolio sharing  
---
+
 # Dataset
 #### Link https://www.kaggle.com/datasets/sangamsharmait/ecommerce-orders-data-analysis
---
+
 # How to Use
 1. Clone the repository.
 
@@ -43,7 +43,7 @@ Provide actionable insights for marketing and operations teams
 
 5. Explore the dashboards in reports folder as pbix or download pdf (.pbix file or screenshots provided).
 
---
+
 # SQL Analysis
 
 ### 1. Order & Sales Analysis (`sql/order_sales_analysis.sql`)
@@ -64,20 +64,22 @@ Provide actionable insights for marketing and operations teams
   - New Customers  
   - Big Spenders  
   - Customer Attention 
---
+
 # Power BI Dashboard
 <i>*** TO DOWNLOAD POWER BI DASHBORD PDF OR PBIX FILE *** (`./reports/Sales and RFM Analysis.pdf`) or (`./reports/Sales and RFM Analysis.pbix`)</i>
 
 ### 1. Product Sales & Trends
 ![Product Sales & Trends](./reports/Screenshot1.png)
+
   -Total revenue overview
   -Orders per month
   -Top 10 products
   -Monthly revenue trends
+
 ### 2. Customer Segmentation
 ![Customer Segmentation Dashboard](./reports/Screenshot2.png)
+
   -Distribution of customers by RFM segments
   -Total sales by segment
   -Average recency, frequency, and monetary values
 
---
