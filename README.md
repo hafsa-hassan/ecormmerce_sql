@@ -1,6 +1,6 @@
 # Sales Insights and Customer Segmentation
 
-![Dashboard Demo](./images/dashboard_demo.gif)
+![Dashboard Demo](./reports/dashboard.gif)
 
 ## Table of Contents
 1. [Project Summary](#Project-Summary)
@@ -25,12 +25,12 @@ The main objectives were:
 Provide actionable insights for marketing and operations teams
 --
 # Tools and Technologies Used
-**SQL (MySQL)** → Data extraction, transformation, aggregations, sales iInsight and RFM analysis
+- **SQL (MySQL)** → Data extraction, transformation, aggregations, sales iInsight and RFM analysis
 - **Power BI Desktop** → Dashboards & visual storytelling  
 - **GitHub** → Version control & portfolio sharing  
 --
 # Dataset
-https://www.kaggle.com/datasets/sangamsharmait/ecommerce-orders-data-analysis
+#### Link https://www.kaggle.com/datasets/sangamsharmait/ecommerce-orders-data-analysis
 --
 # How to Use
 1. Clone the repository.
@@ -66,16 +66,18 @@ https://www.kaggle.com/datasets/sangamsharmait/ecommerce-orders-data-analysis
   - Customer Attention 
 --
 # Power BI Dashboard
-*** TO DOWNLOAD POWER BI DASHBORD PDF OR PBIX FILE *** (`./reports/Sales and RFM Analysis.pdf`) or (`./reports/Sales and RFM Analysis.pbix`)
-Customer Segmentation (RFM)
-![Customer Segmentation Dashboard](./reports/Screenshot1.png)
-  -Distribution of customers by RFM segments
-  -Total sales by segment
-  -Average recency, frequency, and monetary values
-Product Sales & Trends
+<i>*** TO DOWNLOAD POWER BI DASHBORD PDF OR PBIX FILE *** (`./reports/Sales and RFM Analysis.pdf`) or (`./reports/Sales and RFM Analysis.pbix`)</i>
+
+### 1. Product Sales & Trends
 ![Product Sales & Trends](./reports/Screenshot1.png)
   -Total revenue overview
   -Orders per month
   -Top 10 products
   -Monthly revenue trends
+### 2. Customer Segmentation
+![Customer Segmentation Dashboard](./reports/Screenshot2.png)
+  -Distribution of customers by RFM segments
+  -Total sales by segment
+  -Average recency, frequency, and monetary values
+
 --
